@@ -1,10 +1,10 @@
 <?php
-
 require __DIR__ . '/vendor/autoload.php';
 
 $db = include __DIR__ . '/config/db.php';
+$config = $db['dev'];
 
-list(
+/*list(
     'driver' => $adapter,
     'host' => $host,
     'database' => $name,
@@ -12,7 +12,7 @@ list(
     'password' => $pass,
     'charset' => $charset,
     'collation' => $collation
-) = $db['dev'];
+) = $db['dev'];*/
 
 return [
     'paths' => [
@@ -23,13 +23,13 @@ return [
         'default_migration_table' => 'migrations',
         'default_database' => 'development',
         'development' => [
-            'adapter' => $adapter,
-            'host' => $host,
-            'name' => $name,
-            'user' => $user,
-            'pass' => $pass,
-            'charset' => $charset,
-            'collation' => $collation
+            'adapter' => $config['driver'],
+            'host' => $config['host'],
+            'name' => $config['database'],
+            'user' => $config['username'],
+            'pass' => $config['password'],
+            'charset' => $config['charset'],
+            'collation' => $config['collation']
         ]
     ] 
 ];

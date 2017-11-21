@@ -6,12 +6,26 @@
             "email": "gangeluscf@gmail.com"
         }
     ],
-    "require": {
-        "robmorgan/phinx": "0.7.1"
-    },
     "autoload": {
         "psr-4": {
             "SONFin\\": "src/"
-        }
+        },
+        "files": ["src/functions.php"]
+    },
+    "require": {
+        "robmorgan/phinx": "0.7.1",
+        "xtreamwayz/pimple-container-interop": "^1.0",
+        "aura/router": "3.1.0",
+        "zendframework/zend-diactoros": "1.3.10"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "1.6.0"
+    },
+    "scripts": {
+        "rollback-all": "./vendor/bin/phinx rollback -t=0",
+        "migrate": "./vendor/bin/phinx migrate",
+        "seed": "./vendor/bin/phinx seed:run",
+        "migrate-seed": "composer rollback-all && composer migrate && composer seed",
+        "serve": "php -S localhost:8000 -t public public/index.php"
     }
 }
