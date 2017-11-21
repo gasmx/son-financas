@@ -1,0 +1,17 @@
+{
+    "name": "gasmx/son-financas",
+    "authors": [
+        {
+            "name": "Gabriel Angelus",
+            "email": "gangeluscf@gmail.com"
+        }
+    ],
+    "require": {
+        "robmorgan/phinx": "0.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SONFin\\": "src/"
+        }
+    }
+}
