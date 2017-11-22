@@ -53,8 +53,7 @@ class Application
         $request = $this->service(RequestInterface::class);
 
         if (!$route) {
-            echo 'Page not found.';
-            exit;
+            $this->emitResponse(response('Page not found.'));
         }
 
         foreach ($route->attributes as $key => $value){
@@ -69,5 +68,6 @@ class Application
     protected function emitResponse(ResponseInterface $response)
     {
         (new SapiEmitter)->emit($response);
+        exit;
     }
 }

@@ -4,20 +4,10 @@ require __DIR__ . '/vendor/autoload.php';
 $db = include __DIR__ . '/config/db.php';
 $config = $db['dev'];
 
-/*list(
-    'driver' => $adapter,
-    'host' => $host,
-    'database' => $name,
-    'username' => $user,
-    'password' => $pass,
-    'charset' => $charset,
-    'collation' => $collation
-) = $db['dev'];*/
-
 return [
     'paths' => [
-        'migrations' => [ __DIR__ . '/db/migrations' ],
-        'seeds' => [ __DIR__ . '/db/seeds' ]
+        'migrations' => [ __DIR__ . '/database/migrations' ],
+        'seeds' => [ __DIR__ . '/database/seeds' ]
     ],
     'environments' => [
         'default_migration_table' => 'migrations',
